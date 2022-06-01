@@ -14,7 +14,6 @@ import java.time.{DateTimeException, LocalTime, LocalDate}
 import java.time.format.DateTimeFormatter
 import java.util.UUID
 
-
 object Database{
     def main(args:Array[String]):Unit = {
         var random = new Random
@@ -31,7 +30,6 @@ object Database{
         while(sc_city_country.hasNext) {
             lst_city_country += sc_city_country.nextLine
         }
-
 
         //READING ID AND NAME TO LIST
         var id_names = new File("names.csv")
@@ -69,7 +67,6 @@ object Database{
         }
 
         //WEBSITE PAYMNET_ID PAY_SUCCESS PAY_FAIL
-       
         var fields = List("ecommerce_website_name", "payment_txn_id", "payment_txn_success", "failure_reason")
         var payment_id = random.shuffle(10000 to 99999).toList
         var failed = List("Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "N")
@@ -77,7 +74,6 @@ object Database{
         var ifFailed = ""
         var failedReason = ""
        
-
         var out = new File("out.csv")
         var fw = new FileWriter(out, false)
     
@@ -104,7 +100,6 @@ object Database{
             var qty = lstPQP(1)
             var price = lstPQP(2)
 
-
             //UNIQUE CITY AND COUNTRY
             var lstCC = lst_city_country(random.nextInt(lst_city_country.length)).split(",")
             var city = lstCC(0)
@@ -124,10 +119,6 @@ object Database{
 
             var payment_txn_id = payment_id(i)
             fw.write(s"$o,$c,$name,$prod_id_prod_name_prod_cat,$pay_type,$qty,$price,${random_date(LocalDate.of(2021, 1, 1), LocalDate.of(2022, 1, 1))} $uniqueTime,$country,$city,$web,$payment_txn_id,$ifFailed,$failedReason\n")        
-
-
-
-         
          }
 
         //CLOSE SCANNERS
@@ -142,7 +133,7 @@ object Database{
     //GENERATE DATE
     def random_date(from: LocalDate, to: LocalDate): LocalDate = {
         val diff = DAYS.between(from, to)
-        val random = new Random(System.currentTimeMillis) // You may want a different seed
+        val random = new Random(System.currentTimeMillis)
         from.plusDays(random.nextInt(diff.toInt))
     }
 }
