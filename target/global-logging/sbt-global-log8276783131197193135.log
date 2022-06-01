@@ -1,0 +1,47 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(18f0e03e-8b31-446e-8f1d-0a2e5a53389d), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to C:\Users\Home\Desktop\Big-Data\project2\target\scala-2.11\classes ...[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn the last 7 seconds, 5.164 (83.5%) were spent in GC. [Heap: 0.11GB free of 0.90GB, max 0.90GB] Consider increasing the JVM heap using `-Xmx` or try a different collector, e.g. `-XX:+UseG1GC`, for better performance.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn the last 10 seconds, 9.213 (97.6%) were spent in GC. [Heap: 0.11GB free of 0.90GB, max 0.90GB] Consider increasing the JVM heap using `-Xmx` or try a different collector, e.g. `-XX:+UseG1GC`, for better performance.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn the last 10 seconds, 9.298 (98.9%) were spent in GC. [Heap: 0.11GB free of 0.90GB, max 0.90GB] Consider increasing the JVM heap using `-Xmx` or try a different collector, e.g. `-XX:+UseG1GC`, for better performance.[0m
+[0m[[0m[33mwarn[0m] [0m[0mCanceling execution...[0m
+[0m[[0m[33mwarn[0m] [0m[0mCanceling execution...[0m
+[0m[[0m[33mwarn[0m] [0m[0mCanceling execution...[0m
+[0m[[0m[33mwarn[0m] [0m[0mCanceling execution...[0m
+[0m[[0m[33mwarn[0m] [0m[0mCanceling execution...[0m
+[0m[[0m[31merror[0m] [0m[0m## Exception when compiling 1 sources to C:\Users\Home\Desktop\Big-Data\project2\target\scala-2.11\classes[0m
+[0m[[0m[31merror[0m] [0m[0mjava.lang.OutOfMemoryError: GC overhead limit exceeded[0m
+[0m[[0m[31merror[0m] [0m[0mscala.collection.immutable.List.$colon$colon(List.scala:112)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.SpecializeTypes$$anonfun$23$$anonfun$apply$21.apply(SpecializeTypes.scala:796)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.SpecializeTypes$$anonfun$23$$anonfun$apply$21.apply(SpecializeTypes.scala:783)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.collection.immutable.List.flatMap(List.scala:338)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.SpecializeTypes$$anonfun$23.apply(SpecializeTypes.scala:783)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.SpecializeTypes$$anonfun$23.apply(SpecializeTypes.scala:781)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.collection.immutable.List.flatMap(List.scala:338)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.SpecializeTypes.specializeClass(SpecializeTypes.scala:781)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.SpecializeTypes.transformInfo(SpecializeTypes.scala:1196)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.InfoTransform$Phase$$anon$1.transform(InfoTransform.scala:38)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.internal.Symbols$Symbol.rawInfo(Symbols.scala:1625)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.internal.Symbols$Symbol.info(Symbols.scala:1545)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.internal.Symbols$Symbol.isDerivedValueClass(Symbols.scala:824)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.internal.Symbols$Symbol.isMethodWithExtension(Symbols.scala:827)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.Erasure$ErasureTransformer$$anon$1.preEraseNormalApply(Erasure.scala:958)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.Erasure$ErasureTransformer$$anon$1.preEraseApply(Erasure.scala:1065)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.Erasure$ErasureTransformer$$anon$1.preErase(Erasure.scala:1075)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.Erasure$ErasureTransformer$$anon$1.transform(Erasure.scala:1155)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.Erasure$ErasureTransformer$$anon$1.transform(Erasure.scala:887)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.api.Trees$Transformer$$anonfun$transformTrees$1.apply(Trees.scala:2559)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.api.Trees$Transformer$$anonfun$transformTrees$1.apply(Trees.scala:2559)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.collection.immutable.List.loop$1(List.scala:176)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.collection.immutable.List.mapConserve(List.scala:200)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.api.Trees$Transformer.transformTrees(Trees.scala:2559)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.internal.Trees$class.itransform(Trees.scala:1347)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.internal.SymbolTable.itransform(SymbolTable.scala:16)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.internal.SymbolTable.itransform(SymbolTable.scala:16)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.api.Trees$Transformer.transform(Trees.scala:2555)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.TypingTransformers$TypingTransformer.transform(TypingTransformers.scala:44)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.Erasure$ErasureTransformer$$anon$1.transform(Erasure.scala:1166)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.tools.nsc.transform.Erasure$ErasureTransformer$$anon$1.transform(Erasure.scala:887)[0m
+[0m[[0m[31merror[0m] [0m[0mscala.reflect.internal.Trees$class.itransform(Trees.scala:1345)[0m
+[0m[[0m[31merror[0m] [0m[0m           [0m

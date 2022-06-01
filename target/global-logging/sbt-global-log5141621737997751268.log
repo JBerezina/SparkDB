@@ -1,0 +1,86 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(319fe6de-dc32-4a91-969f-eb5280239fe4), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to C:\Users\Home\Desktop\Big-Data\project2\target\scala-2.11\classes ...[0m
+[0m[[0m[31merror[0m] [0m[0morg.apache.spark.sql.AnalysisException: expression 'cutyear.`date`' is neither present in the group by, nor is it an aggregate function. Add to group by or wrap in first() (or first_value) if you don't care which value you get.;;[0m
+[0m[[0m[31merror[0m] [0m[0m'Sort [Country#59 ASC NULLS FIRST, Product_Name#76 ASC NULLS FIRST, 'date ASC NULLS FIRST], true[0m
+[0m[[0m[31merror[0m] [0m[0m+- Aggregate [Country#59, Product_Name#76], [Country#59, Product_Name#76, month(date#114) AS month#120, sum(cast(max(QTY)#108 as bigint)) AS sum(max(QTY))#122L][0m
+[0m[[0m[31merror[0m] [0m[0m   +- SubqueryAlias cutyear[0m
+[0m[[0m[31merror[0m] [0m[0m      +- Project [Country#59, Product_Name#76, Datetime#19, to_date('Datetime, Some(MM-dd-yyyy)) AS date#114, max(QTY)#108][0m
+[0m[[0m[31merror[0m] [0m[0m         +- Sort [Country#59 ASC NULLS FIRST, Product_Name#76 ASC NULLS FIRST, Datetime#19 ASC NULLS FIRST], true[0m
+[0m[[0m[31merror[0m] [0m[0m            +- Aggregate [Country#59, Product_Name#76, Datetime#19], [Country#59, Product_Name#76, Datetime#19, max(QTY#42) AS max(QTY)#108][0m
+[0m[[0m[31merror[0m] [0m[0m               +- Project [Country#59, Product_Name#76, Datetime#19, QTY#42][0m
+[0m[[0m[31merror[0m] [0m[0m                  +- Sort [Datetime#19 ASC NULLS FIRST], true[0m
+[0m[[0m[31merror[0m] [0m[0m                     +- Filter (((((isnotnull(cast(QTY#42 as int)) && Country#59 IN (Australia,Germany,China,Canada,Japan,United States)) && Product_Name#76 RLIKE ^[A-Z]) && NOT (cast(Product_Name#76 as string) = NULL)) && isnotnull(Datetime#19)) && Datetime#19 RLIKE ^[0-9])[0m
+[0m[[0m[31merror[0m] [0m[0m                        +- Project [Country#59, Product_Name#76, Datetime#19, QTY#42][0m
+[0m[[0m[31merror[0m] [0m[0m                           +- Project [Order_id#10, Customer_id#11, Customer_name#12, Product_ID#13, cast(Product_Name#14 as string) AS Product_Name#76, Product_Category#15, Payment Type#16, QTY#42, Price#18, Datetime#19, Country#59, City#21, ecommerce_website_name#22, Payment Transaciton ID#23, Payment Status#24, Notes#25][0m
+[0m[[0m[31merror[0m] [0m[0m                              +- Project [Order_id#10, Customer_id#11, Customer_name#12, Product_ID#13, Product_Name#14, Product_Category#15, Payment Type#16, QTY#42, Price#18, Datetime#19, cast(Country#20 as string) AS Country#59, City#21, ecommerce_website_name#22, Payment Transaciton ID#23, Payment Status#24, Notes#25][0m
+[0m[[0m[31merror[0m] [0m[0m                                 +- Project [Order_id#10, Customer_id#11, Customer_name#12, Product_ID#13, Product_Name#14, Product_Category#15, Payment Type#16, cast(QTY#17 as int) AS QTY#42, Price#18, Datetime#19, Country#20, City#21, ecommerce_website_name#22, Payment Transaciton ID#23, Payment Status#24, Notes#25][0m
+[0m[[0m[31merror[0m] [0m[0m                                    +- Relation[Order_id#10,Customer_id#11,Customer_name#12,Product_ID#13,Product_Name#14,Product_Category#15,Payment Type#16,QTY#17,Price#18,Datetime#19,Country#20,City#21,ecommerce_website_name#22,Payment Transaciton ID#23,Payment Status#24,Notes#25] csv[0m
+[0m[[0m[31merror[0m] [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.failAnalysis(CheckAnalysis.scala:41)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.Analyzer.failAnalysis(Analyzer.scala:92)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.org$apache$spark$sql$catalyst$analysis$CheckAnalysis$class$$anonfun$$checkValidAggregateExpression$1(CheckAnalysis.scala:191)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$org$apache$spark$sql$catalyst$analysis$CheckAnalysis$class$$anonfun$$checkValidAggregateExpression$1$5.apply(CheckAnalysis.scala:197)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$org$apache$spark$sql$catalyst$analysis$CheckAnalysis$class$$anonfun$$checkValidAggregateExpression$1$5.apply(CheckAnalysis.scala:197)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.foreach(List.scala:392)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.org$apache$spark$sql$catalyst$analysis$CheckAnalysis$class$$anonfun$$checkValidAggregateExpression$1(CheckAnalysis.scala:197)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$org$apache$spark$sql$catalyst$analysis$CheckAnalysis$class$$anonfun$$checkValidAggregateExpression$1$5.apply(CheckAnalysis.scala:197)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$org$apache$spark$sql$catalyst$analysis$CheckAnalysis$class$$anonfun$$checkValidAggregateExpression$1$5.apply(CheckAnalysis.scala:197)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.foreach(List.scala:392)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.org$apache$spark$sql$catalyst$analysis$CheckAnalysis$class$$anonfun$$checkValidAggregateExpression$1(CheckAnalysis.scala:197)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$9.apply(CheckAnalysis.scala:224)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$9.apply(CheckAnalysis.scala:224)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.foreach(List.scala:392)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:224)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:84)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:127)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$foreachUp$1.apply(TreeNode.scala:126)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$foreachUp$1.apply(TreeNode.scala:126)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.foreach(List.scala:392)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:126)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.checkAnalysis(CheckAnalysis.scala:84)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:92)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:105)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.QueryExecution.analyzed$lzycompute(QueryExecution.scala:57)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.QueryExecution.analyzed(QueryExecution.scala:55)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:47)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.Dataset$.ofRows(Dataset.scala:74)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.sql(SparkSession.scala:642)[0m
+[0m[[0m[31merror[0m] [0m[0m	at project2$.prodPop(project2.scala:121)[0m
+[0m[[0m[31merror[0m] [0m[0m	at project2$.main(project2.scala:33)[0m
+[0m[[0m[31merror[0m] [0m[0m	at project2.main(project2.scala)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.reflect.Method.invoke(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.invokeMain(Run.scala:143)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.execute$1(Run.scala:93)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.$anonfun$runWithLoader$5(Run.scala:120)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run$.executeSuccess(Run.scala:186)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.runWithLoader(Run.scala:120)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$bgRunTask$6(Defaults.scala:1983)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$termWrapper$2(Defaults.scala:1922)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.util.Try$.apply(Try.scala:213)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.BackgroundThreadPool$BackgroundRunnable.run(DefaultBackgroundJobService.scala:369)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) org.apache.spark.sql.AnalysisException: expression 'cutyear.`date`' is neither present in the group by, nor is it an aggregate function. Add to group by or wrap in first() (or first_value) if you don't care which value you get.;;[0m
+[0m[[0m[31merror[0m] [0m[0m'Sort [Country#59 ASC NULLS FIRST, Product_Name#76 ASC NULLS FIRST, 'date ASC NULLS FIRST], true[0m
+[0m[[0m[31merror[0m] [0m[0m+- Aggregate [Country#59, Product_Name#76], [Country#59, Product_Name#76, month(date#114) AS month#120, sum(cast(max(QTY)#108 as bigint)) AS sum(max(QTY))#122L][0m
+[0m[[0m[31merror[0m] [0m[0m   +- SubqueryAlias cutyear[0m
+[0m[[0m[31merror[0m] [0m[0m      +- Project [Country#59, Product_Name#76, Datetime#19, to_date('Datetime, Some(MM-dd-yyyy)) AS date#114, max(QTY)#108][0m
+[0m[[0m[31merror[0m] [0m[0m         +- Sort [Country#59 ASC NULLS FIRST, Product_Name#76 ASC NULLS FIRST, Datetime#19 ASC NULLS FIRST], true[0m
+[0m[[0m[31merror[0m] [0m[0m            +- Aggregate [Country#59, Product_Name#76, Datetime#19], [Country#59, Product_Name#76, Datetime#19, max(QTY#42) AS max(QTY)#108][0m
+[0m[[0m[31merror[0m] [0m[0m               +- Project [Country#59, Product_Name#76, Datetime#19, QTY#42][0m
+[0m[[0m[31merror[0m] [0m[0m                  +- Sort [Datetime#19 ASC NULLS FIRST], true[0m
+[0m[[0m[31merror[0m] [0m[0m                     +- Filter (((((isnotnull(cast(QTY#42 as int)) && Country#59 IN (Australia,Germany,China,Canada,Japan,United States)) && Product_Name#76 RLIKE ^[A-Z]) && NOT (cast(Product_Name#76 as string) = NULL)) && isnotnull(Datetime#19)) && Datetime#19 RLIKE ^[0-9])[0m
+[0m[[0m[31merror[0m] [0m[0m                        +- Project [Country#59, Product_Name#76, Datetime#19, QTY#42][0m
+[0m[[0m[31merror[0m] [0m[0m                           +- Project [Order_id#10, Customer_id#11, Customer_name#12, Product_ID#13, cast(Product_Name#14 as string) AS Product_Name#76, Product_Category#15, Payment Type#16, QTY#42, Price#18, Datetime#19, Country#59, City#21, ecommerce_website_name#22, Payment Transaciton ID#23, Payment Status#24, Notes#25][0m
+[0m[[0m[31merror[0m] [0m[0m                              +- Project [Order_id#10, Customer_id#11, Customer_name#12, Product_ID#13, Product_Name#14, Product_Category#15, Payment Type#16, QTY#42, Price#18, Datetime#19, cast(Country#20 as string) AS Country#59, City#21, ecommerce_website_name#22, Payment Transaciton ID#23, Payment Status#24, Notes#25][0m
+[0m[[0m[31merror[0m] [0m[0m                                 +- Project [Order_id#10, Customer_id#11, Customer_name#12, Product_ID#13, Product_Name#14, Product_Category#15, Payment Type#16, cast(QTY#17 as int) AS QTY#42, Price#18, Datetime#19, Country#20, City#21, ecommerce_website_name#22, Payment Transaciton ID#23, Payment Status#24, Notes#25][0m
+[0m[[0m[31merror[0m] [0m[0m                                    +- Relation[Order_id#10,Customer_id#11,Customer_name#12,Product_ID#13,Product_Name#14,Product_Category#15,Payment Type#16,QTY#17,Price#18,Datetime#19,Country#20,City#21,ecommerce_website_name#22,Payment Transaciton ID#23,Payment Status#24,Notes#25] csv[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 15 s, completed May 29, 2022 9:23:10 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
